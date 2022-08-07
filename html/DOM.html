@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion con DOM</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<header>
+    <div class="container-f">
+        <h1 id="titulo">Validaciones de formulario con DOM</h1>
+    </div>
+</header>
+<body>
+    <form class="contact-form">
+        <input type="text" name="nombre" placeholder="Escribe tu nombre" title="El nombre solo debe contener letras y acentos." 
+        pattern="^[A-ZÀ-ÿ]\w+$" required>
+        <input type="text" name="apellido" placeholder="Escribe tu apellido" title="El apellido solo debe contener letras y acentos." 
+        pattern="^[A-ZÀ-ÿ]\w+$" required>
+        <input type="email" name="correo" placeholder="Escribe tu correo" title="El correo debe seguir este ejemplo: nombre@dominio.com ." 
+        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
+        <input type="text" name="usuario" placeholder="Escribe tu usuario" title="El usuario no debe sobrepasar los 4 caracteres." 
+        pattern="^[A-Za-zÀ-ÿ0-9]{4}$" required>
+        <input type="text" name="mayusculas" placeholder="Escribe aqui" title="Todo los escrito aqui debe ser en letras mayusculas." 
+        pattern="^[A-Z]{1,40}$" required>
+        <input type="submit" value="Enviar" title="El formulario ha sido enviado exitosamente">
+    </form>
+</body>
+</html>

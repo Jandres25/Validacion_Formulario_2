@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion con JQuery</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../javascript/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../javascript/jquery.form.min.js"></script>
+    <script type="text/javascript" src="../javascript/codigo.js"></script>
+
+    <script>
+        var expr = /^[A-ZÀ-ÿ]\w+$/;
+        var expr1 = /^[A-ZÀ-ÿ]\w+$/;
+        var expr2 = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        var expr3 = /^[a-zA-Z0-9\_\-]{4}$/;
+        var expr4 = /^[A-Z]{1,40}$/;
+
+        $(document).ready(function(){
+            $("#bEnviar").click(function(){
+                var nombre = $("#itNombre").val();
+                var apellido = $("#itApellido").val();
+                var correo = $("#itMail").val();
+                var usuario = $("#itUsuario").val();
+                var mayuscula = $("#itMayuscula").val();
+
+                if(nombre == "" || !expr.test(nombre)){
+                    $("#mensaje1").fadeIn();
+                    return false;
+                }else{
+                    $("#mensaje1").fadeOut();
+                    if(apellido == "" || !expr1.test(apellido)){
+                        $("#mensaje2").fadeIn();
+                        return false;
+                    }else{
+                        $("#mensaje2").fadeOut();
+                        if(correo == "" || !expr2.test(correo)){
+                            $("#mensaje3").fadeIn();
+                            return false;
+                        }else{
+                            $("#mensaje3").fadeOut();
+                            if(usuario == "" || !expr3.test(usuario)){
+                                $("#mensaje4").fadeIn();
+                                return false;
+                            }else{
+                                $("mensaje4").fadeOut();
+                                if(mayuscula == "" || !expr4.test(mayuscula)){
+                                    $("#mensaje5").fadeIn();
+                                    return false;
+                                }else{
+                                    $("mensaje5").fadeOut();
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <form id="miFormulario">
+            <label>Nombre:</label><br/>
+            <input type="text" id="itNombre" class="campo" placeholder="Escribe tu nombre"/><br/>
+            <div id="mensaje1" class="errores">El nombre debe tener la primera letra mayuscula y pueden tener acentos</div>
+
+            <label>Apellido:</label><br/>
+            <input type="text" id="itApellido" class="campo" placeholder="Escribe tu apellido"/><br/>
+            <div id="mensaje2" class="errores">El apellido debe tener la primera letra mayuscula y pueden tener acentos</div>
+
+            <label>Correo electrónico:</label><br/>
+            <input type="email" id="itMail" class="campo" placeholder="Escribe tu correo electrónico"/><br/>
+            <div id="mensaje3" class="errores">El correo debe ser similar al ejemplo: nombre@dominio.com.</div>
+
+            <label>Usuario:</label><br/>
+            <input type="text" id="itUsuario" class="campo" placeholder="Escribe tu usuario"/><br/>
+            <div id="mensaje4" class="errores">El usuario no debe sobrepasar los 4 caracteres.</div>
+
+            <label>Mayúsculas:</label><br/>
+            <input type="text" id="itMayuscula" class="campo" placeholder="Escribe con letras mayúsculas"/><br/>
+            <div id="mensaje5" class="errores">Solo debes ingresar letras mayúsculas</div>
+
+            <input type="submit" id="bEnviar" value="Enviar datos" class="boton" />
+        </form>
+    </div>
+</body>
+</html>

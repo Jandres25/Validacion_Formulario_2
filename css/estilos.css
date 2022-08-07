@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 70px;
+    margin: 0;
+    background: cornflowerblue;
+    color: whitesmoke;
+}
+
+#titulo{
+    position: relative;
+    text-align: center;
+    top: 16px;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #E5E5E5;
+}
+
+.contact-form {
+    margin-top: 50px;
+    --form-ok-color: #4caf50;
+    --form-error-color: #f44336;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.contact-form > * {
+    padding: 0.5rem;
+    margin: 1rem auto;
+    display: block;
+    width: 60%;
+}
+
+.contact-form input[type="submit"] {
+    width: 10%;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.contact-form *::placeholder {
+    color: black;
+}
+
+.contact-form [required]:valid {
+    border: thin solid var(--form-ok-color);
+}
+
+.contact-form [required]:invalid {
+    border: thin solid var(--form-error-color);
+}
